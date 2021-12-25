@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "asaqal:build:production",
+            "firebaseProject": "asaqal-site",
+            "firebaseHostingSite": "asaqal-site"
+          }
         }
       }
     }

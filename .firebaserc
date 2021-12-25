@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "asaqal-site"
+  },
+  "targets": {
+    "asaqal-site": {
+      "hosting": {
+        "asaqal": [
+          "asaqal-site"
+        ]
+      }
+    }
   }
 }
