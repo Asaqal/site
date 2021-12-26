@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "site": "asaqal-site",
       "public": "dist",
       "ignore": [
         "firebase.json",
