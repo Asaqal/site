@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PROJECTS } from './project-list';
+import { PROJECTS } from '../project-list';
 
 @Component({
   selector: 'app-project-overview',
