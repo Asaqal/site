@@ -2,6 +2,11 @@ import { Project } from './project';
 
 export const PROJECTS: Project[] = [
   {
+    id: 0,
+    name: 'about me',
+    description: 'some introduction about myself',
+  },
+  {
     id: 1,
     name: 'lights out!',
     description: 'a recreation of a classic 90\'s electronic game where the goal is to switch all the lights off',

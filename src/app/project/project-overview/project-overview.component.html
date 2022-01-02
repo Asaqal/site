@@ -1,7 +1,12 @@
-<h2>My Projects</h2>
+<!-- <h2>My Projects</h2>
 <ul class="projects">
     <li *ngFor="let project of projects" (click)="onSelect(project)">
         <span class="project-name">{{project.name}}</span>
         <p>{{project.description}}</p>
     </li>
-</ul>
+</ul> -->
+<div>
+    <p>{{selectedProject.id}} / {{projects.length}}</p>
+    <h2>{{selectedProject.name}}</h2>
+    <p>{{selectedProject.description}}</p>
+</div>
