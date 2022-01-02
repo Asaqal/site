@@ -8,8 +8,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 1,
-    name: 'lights out!',
-    description: 'a recreation of a classic 90\'s electronic game where the goal is to switch all the lights off',
+    name: 'setbot',
+    description: 'a bot made with python and selenium to very quickly complete setwithfriends.com games',
+
   },
   {
     id: 2,
@@ -18,7 +19,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 3,
-    name: 'setbot',
-    description: 'a bot made with python and selenium to very quickly complete setwithfriends.com games',
+    name: 'lights out!',
+    description: 'a recreation of a classic 90\'s electronic game where the goal is to switch all the lights off',
   },
 ];

@@ -8,38 +8,33 @@ import { PROJECTS } from '../project-list';
   styleUrls: ['./project-overview.component.scss']
 })
 export class ProjectOverviewComponent implements OnInit {
-  scrollThreshold = 50;
+  timeout!: ReturnType<typeof setTimeout>;
+  scrollDelay = 60;
 
   projects = PROJECTS;
-  selectedProject = this.projects[0];
+  selectedProjectIndex = 0;
+  selectedProject = this.projects[this.selectedProjectIndex];
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  // onSelect(project: Project): void {
-  //   this.selectedProject = project;
-  //   console.log(this.selectedProject);
-  // }
+  updateSelectedProject(): void {
+    if (this.selectedProjectIndex < 0) {
+      this.selectedProjectIndex = 0;
+    } else if (this.selectedProjectIndex > this.projects.length-1) {
+      this.selectedProjectIndex = this.projects.length-1;
+    }
+    this.selectedProject = this.projects[this.selectedProjectIndex];
+  }
 
   @HostListener('mousewheel', ['$event']) onMousewheel(event: WheelEvent): void {
-    // if (document.body.scrollTop / 50 < 1) {
-    //   this.selectedProject = this.projects[0]
-    // }
-    // console.log("scrolled");
-    // if (Math.trunc(document.body.scrollTop / this.scrollThreshold) == 0) {
-    //   this.selectedProject = this.projects[0];
-    // } else if (Math.trunc(document.body.scrollTop / this.scrollThreshold) > this.projects.length) {
-    //   this.selectedProject = this.projects[this.projects.length-1];
-    // } else {
-    //   this.selectedProject = this.projects[Math.trunc(document.body.scrollTop / this.scrollThreshold)];
-    // }
-    if (event.deltaY < 0) { // scroll up
-      console.log("up");
-    } else if (event.deltaY > 0) {
-      console.log("down");
-    }
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.selectedProjectIndex -= (event.deltaY/Math.abs(event.deltaY));
+      this.updateSelectedProject();
+    }, this.scrollDelay)
   }
 
 }
