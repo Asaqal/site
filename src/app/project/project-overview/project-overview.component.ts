@@ -18,6 +18,7 @@ export class ProjectOverviewComponent implements OnInit {
 
   onSelect(project: Project): void {
     this.selectedProject = project;
+    console.log(this.selectedProject);
   }
 
 }
