@@ -22,9 +22,9 @@ export class ProjectOverviewComponent implements OnInit {
 
   updateSelectedProject(): void {
     if (this.selectedProjectIndex < 0) {
-      this.selectedProjectIndex = 0;
-    } else if (this.selectedProjectIndex > this.projects.length-1) {
       this.selectedProjectIndex = this.projects.length-1;
+    } else if (this.selectedProjectIndex > this.projects.length-1) {
+      this.selectedProjectIndex = 0;
     }
     this.selectedProject = this.projects[this.selectedProjectIndex];
   }
@@ -32,7 +32,7 @@ export class ProjectOverviewComponent implements OnInit {
   @HostListener('mousewheel', ['$event']) onMousewheel(event: WheelEvent): void {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => {
-      this.selectedProjectIndex -= (event.deltaY/Math.abs(event.deltaY));
+      this.selectedProjectIndex += (event.deltaY/Math.abs(event.deltaY));
       this.updateSelectedProject();
     }, this.scrollDelay)
   }
