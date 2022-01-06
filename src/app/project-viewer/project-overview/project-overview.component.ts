@@ -1,6 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Project } from '../project';
-import { PROJECTS } from '../project-list';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-project-overview',
@@ -11,13 +10,18 @@ export class ProjectOverviewComponent implements OnInit {
   timeout!: ReturnType<typeof setTimeout>;
   scrollDelay = 60;
 
-  projects = PROJECTS;
+  projects: Project[] = [];
   selectedProjectIndex = 0;
   selectedProject = this.projects[this.selectedProjectIndex];
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
+    this.getProjects();
+  }
+
+  getProjects(): void {
+    this.projects = this.projectService.getProjects();
   }
 
   updateSelectedProject(): void {
