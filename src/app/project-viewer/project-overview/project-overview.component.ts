@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Project } from '../project';
+import { PROJECTS } from '../project-list';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProjectOverviewComponent implements OnInit {
   timeout!: ReturnType<typeof setTimeout>;
   scrollDelay = 60;
 
-  projects: Project[] = [];
+  projects = PROJECTS;
   selectedProjectIndex = 0;
   selectedProject = this.projects[this.selectedProjectIndex];
 
